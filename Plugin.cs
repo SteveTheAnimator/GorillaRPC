@@ -11,6 +11,7 @@ namespace GorillaRPC
     {
         #region Test Booleans  
         public bool TestExample1 = false;
+        public bool TestExample2 = false;
         #endregion
 
         public void Start()
@@ -44,9 +45,22 @@ namespace GorillaRPC
                     Debug.LogError($"[GorillaRPC] Failed to add Example1 component: {ex.Message}");
                 }
             }
-            else
+            #endregion
+            #region Example 2
+            if (TestExample2)
             {
-                Debug.Log("[GorillaRPC] Example1 is disabled.");
+                try
+                {
+                    var example2 = new GameObject("Example2").AddComponent<Examples.Example2>();
+                    example2.health = 100;    
+                    example2.PushSync();
+
+                    Debug.Log("[GorillaRPC] Example2 component added successfully.");
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogError($"[GorillaRPC] Failed to add Example2 component: {ex.Message}");
+                }
             }
             #endregion
             #endregion
