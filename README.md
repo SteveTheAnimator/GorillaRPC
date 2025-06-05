@@ -1,4 +1,4 @@
-# GorillaRPC
+![CapuchinTerrifs](https://raw.githubusercontent.com/SteveTheAnimator/GorillaRPC/master/Media/CapuchinTerrifs.png)
 ## A gorilla tag library that lets you easily create RPCs without the downsides of bans
 
 ## Installation
