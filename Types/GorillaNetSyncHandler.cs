@@ -7,9 +7,17 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 namespace GorillaRPC.Types
 {
+    /// <summary>
+    /// Handles synchronization of IGorillaNetObservable objects with Photon custom properties.
+    /// </summary>
     public static class GorillaNetSyncHandler
     {
-        public static void Sync(IGorillaNetObservable observable, Hashtable photonCustomProps)
+        /// <summary>
+        /// Synchronizes the state of an IGorillaNetObservable object with Photon custom properties.
+        /// </summary>
+        /// <param name="observable"></param>
+        /// <param name="photonCustomProps"></param>
+        public static void Sync(IGorillaNetObservable observable, ref Hashtable photonCustomProps)
         {
             var customPropsToSend = new Dictionary<string, object>();
             observable.OnGorillaNetSerialize(customPropsToSend);
@@ -19,8 +27,12 @@ namespace GorillaRPC.Types
                 photonCustomProps[kvp.Key] = kvp.Value;
             }
         }
-
-        public static void Deserialize(IGorillaNetObservable observable, Hashtable photonCustomProps)
+        /// <summary>
+        /// Deserializes the state of an IGorillaNetObservable object from Photon custom properties.
+        /// </summary>
+        /// <param name="observable"></param>
+        /// <param name="photonCustomProps"></param>
+        public static void Deserialize(IGorillaNetObservable observable, ref Hashtable photonCustomProps)
         {
             var receivedProps = new Dictionary<string, object>();
 

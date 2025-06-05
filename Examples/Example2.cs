@@ -24,16 +24,13 @@ namespace GorillaRPC.Examples
 
         public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
         {
-            if (targetPlayer == photonView.Owner)
-            {
-                GorillaNetSyncHandler.Deserialize(this, changedProps);
-            }
+            GorillaNetSyncHandler.Deserialize(this, ref changedProps);
         }
 
         public void PushSync()
         {
             Hashtable hash = new Hashtable();
-            GorillaNetSyncHandler.Sync(this, hash);
+            GorillaNetSyncHandler.Sync(this, ref hash);
             PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
         }
     }

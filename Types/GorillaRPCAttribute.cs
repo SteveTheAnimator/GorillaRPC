@@ -2,6 +2,9 @@
 
 namespace GorillaRPC.Types
 {
+    /// <summary>
+    /// Attribute to mark methods for Gorilla RPC (Remote Procedure Call) functionality.
+    /// </summary>
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
     public class GorillaRPCAttribute : Attribute
     {

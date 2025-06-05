@@ -4,6 +4,9 @@ using ExitGames.Client.Photon;
 
 namespace GorillaRPC.Types
 {
+    /// <summary>
+    /// Represents a property in GorillaNet that can be serialized and deserialized.
+    /// </summary>
     public class GorillaNetProperty
     {
         public string Key { get; }

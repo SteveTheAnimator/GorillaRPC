@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace GorillaRPC
 {
+    /// <summary>
+    /// GorillaRPC Plugin
+    /// </summary>
     [BepInPlugin(PluginInfo.GUID, PluginInfo.Name, PluginInfo.Version)]
     public class Plugin : BaseUnityPlugin
     {

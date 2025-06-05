@@ -8,6 +8,9 @@ using UnityEngine;
 
 namespace GorillaRPC.Types
 {
+    /// <summary>
+    /// Base class for Gorilla RPC behaviours that handle remote procedure calls (RPCs) using Photon.
+    /// </summary>
     public abstract class GorillaRPCBehaviour : MonoBehaviourPunCallbacks, IOnEventCallback
     {
         private static readonly Dictionary<byte, Dictionary<string, MethodInfo>> _eventCodeToMethodMap = new Dictionary<byte, Dictionary<string, MethodInfo>>();
@@ -45,7 +48,14 @@ namespace GorillaRPC.Types
                 }
             }
         }
-
+        /// <summary>
+        /// Calls a method on all instances of GorillaRPCBehaviour in the room using Photon RaiseEvent.
+        /// </summary>
+        /// <param name="methodName"></param>
+        /// <param name="args"></param>
+        /// <param name="behaviour"></param>
+        /// <param name="rpcEventCode"></param>
+        /// <param name="receivers"></param>
         public static void Call(string methodName, object[] args, GorillaRPCBehaviour behaviour, byte rpcEventCode, ReceiverGroup receivers = ReceiverGroup.Others)
         {
             object[] payload = new object[] { methodName, args };
